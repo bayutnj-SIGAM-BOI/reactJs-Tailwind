@@ -1,11 +1,16 @@
 import React from "react";
 import { BentoTilt, BentoCard } from "./Features";
 import WinningAlianceCompetition from "../assets/WinningAlianceCompetition.jpg";
-import { FaBeer } from "react-icons/fa";
+import {FaCompass, FaDatabase} from "react-icons/fa";
+import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
+
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 
 const TextLine = ({ title, subtitle, className = "" }) => {
   return (
-    <div className={`ml-8 ${className}`}>
+    <div className={`ml-4 ${className}`}>
       <h1 className="text-lg font-semibold">{title}</h1>
       <p className="mt-2 text-sm text-gray-700 leading-relaxed text-justify">
         {subtitle}
@@ -15,7 +20,33 @@ const TextLine = ({ title, subtitle, className = "" }) => {
 };
 
 const About = () => {
-  return (
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    useGSAP(() => {
+        gsap.fromTo(
+            "#pic",
+            {
+                scale: 0,
+                opacity: 0,
+            },
+            {
+                scale: 1,
+                opacity: 1,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: "#pic",
+                    start: "top 85%",
+                    end: "top 40%",
+                    scrub: true,
+                },
+            }
+        );
+    });
+
+
+
+    return (
     <div id="about" className="min-h-screen w-screen">
       <div className="relative mb-8 mt-36 flex flex-col items-center gap-5">
         <h2 className="text-md uppercase md-text-[10px] font-sans">
@@ -23,15 +54,17 @@ const About = () => {
         </h2>
 
         <div className="mt-5 text-center text-5xl uppercase leading-[0.8] md:text-[6rem]">
-          D<b>e</b>ep E<b>x</b>pl<b>o</b>reat<b>i</b>on <b>R</b>ob<b>o</b>tic T
+          D<b>e</b>ep E<b>x</b>pl<b>o</b>ret<b>i</b>on <b>R</b>ob<b>o</b>tic T
           <b>e</b>ams
         </div>
       </div>
 
-      <div className="grid px-6 mt-16 grid-cols-3 grid-rows-3 gap-2 md:grid-cols-3 md:grid-rows-3">
-        <BentoTilt className="border border-white/20 row-span-3 md:col-span-1 overflow-hidden rounded-[1rem] md: row-span-4">
+
+      <div id="pic" className="grid px-6 mt-16 grid-cols-1 grid-rows-1 gap-2 md:grid-cols-3 md:grid-rows-2">
+        <BentoTilt className="h-[30vh] w-full border border-white/20 rows-span-3 md:col-span-1 overflow-hidden rounded-[1rem] md: row-span-4">
           <BentoCard title={""} src={WinningAlianceCompetition} />
         </BentoTilt>
+
 
         <TextLine
           title="About"
@@ -57,9 +90,7 @@ const About = () => {
         />
       </div>
 
-      <div className="mt-6 mx-16 bg-black-5 rounded-full p-6 backdrop-blur-sm md:mt-12">
-        <h1 className="text-white text-lg">{FaBeer}</h1>
-      </div>
+
     </div>
   );
 };

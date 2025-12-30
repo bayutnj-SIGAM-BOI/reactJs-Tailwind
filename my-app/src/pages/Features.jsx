@@ -51,7 +51,7 @@ export const BentoCard = ({ src, title, description }) => {
 
       <div className="relative z-10 flex size-full flex-col justify-between p-5 text-blue-50">
         <div>
-          <h1 className="text-2xl uppercase font-bold">{title}</h1>
+          <h1 className="text-1xl md:text-2xl uppercase font-bold">{title}</h1>
           {description && (
             <p className="mt-3 max-w-64 text-xs">{description}</p>
           )}

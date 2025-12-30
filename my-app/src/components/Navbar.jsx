@@ -21,6 +21,9 @@ const Navbar = () => {
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isNavVisible, setIsNavVisible] = useState(true);
 
+
+  
+
   const handleScrollTop = () => {
     window.scrollTo({
       top: 0,
@@ -66,7 +69,7 @@ const Navbar = () => {
               go2steam
             </NavLink>
 
-            <button className="bg-blue-300 md:flex items-center justify-center gap-1 w-[6.5rem] h-[2.2rem] rounded-full text-white md:w-[8rem] md:h-[2.5rem]">
+            <button className="bg-blue-300 md:flex hidden items-center justify-center gap-1 w-[8rem] h-[2.5rem] rounded-full text-white">
               <NavLink to="/Home2">
                 Zoom
               </NavLink>
@@ -74,7 +77,7 @@ const Navbar = () => {
           </div>
 
           <div className="flex h-full items-center">
-            <div className="md:block">
+            <div className="hidden md:block">
               {[
                 { label: "Achievement", to: "#Achievement" },
                 { label: "Documentation", to: "#Story" },
@@ -83,7 +86,7 @@ const Navbar = () => {
                 <a
                   key={index}
                   href={item.to}
-                  className="ml-6 text-md text-white hover:text-blue-500 transition md:text-lg"
+                  className="ml-6 text-lg text-white hover:text-blue-500 transition"
                   onClick={handleSmoothNav}
                 >
                   {item.label}

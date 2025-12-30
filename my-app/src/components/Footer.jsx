@@ -15,7 +15,7 @@ const Footer = () => {
 
         <div className="flex justify-center gap-6 md:justify-start">
           {logoImg.map((logo, index) => (
-            <img key={index} src={logo} className="object-contain w-auto h-16"/>
+            <img key={index} src={logo} className="object-contain w-[100px] h-16 md:w-auto"/>
           ))}
         </div>
 

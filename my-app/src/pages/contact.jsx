@@ -59,8 +59,8 @@ const Contact = () => {
 
   return (
     <section id="Contact" className="min-h-dvd w-screen bg-black-10 text-blue-50">
-      <div className="flex size-full flex-col items-center py-5 pb-20">
-        <h2 className="font-general text-sm uppercase md:text-[17px]">
+      <div className="flex size-full flex-col items-center py-5 pb-20 px-8">
+        <h2 className="font-general text-sm text-center uppercase md:text-[17px]">
           Curious about robots, coding, or STEAM challenges?
         </h2>
 
@@ -68,7 +68,7 @@ const Contact = () => {
           Contact us
         </div>
 
-        <div className="relative mb-7 mt-36 border border-white/20 w-[45vw] h-full overflow-hidden rounded-[1.5rem]">
+        <div className="relative mb-7 mt-36 border border-white/20 w-full h-full overflow-hidden rounded-[1.5rem] md:w-[45vw]">
           <form onSubmit={handleSubmit} className="flex flex-col gap-6 p-8">
             <label className="flex flex-col">
               <span className="text-white text-lg mb-4">Name</span>

@@ -1,6 +1,6 @@
 import React from "react";
-import { member_card as Member } from "../constant";
-import { GenOne_card as gMember } from "../constant";
+import { member_card } from "../constant";
+
 
 const MemberIntroducde = () => {
   return (
@@ -12,54 +12,13 @@ const MemberIntroducde = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-6 px-6 md:grid-cols-3">
-          {Member.map((i, index) => (
-            <div
-              key={index}
-              className="relative border border-black/20 rounded-xl p-4 overflow-hidden"
-              style={{ backgroundColor: i.colors }}
-            >
-              {i.image && (
-                <img
-                  src={i.image}
-                  alt={i.name}
-                  className="mb-4 h-40 w-full object-cover"
-                />
-              )}
-
-              <label className="block text-lg  font-bold text-white">
-                {i.name}
-              </label>
-
-              <span className="text-md  text-white/80">{i.role}</span>
+        <div className="grid grid-cols-5 grid-rows-4 px-6">
+          {member_card.map((i, index) => 
+            <div key={index} className="flex flex-col items-center">
+              <h1>{i.name}</h1>
             </div>
-          ))}
-        </div>
+            )}
 
-        <div className="mt-12 grid grid-cols-2 gap-6 px-6 mb-24 md:grid-cols-3">
-          {gMember.map((i, index) => {
-            return (
-              <div
-                key={index}
-                className="relative border border-black/20 rounded-xl p-4 overflow-hidden"
-                style={{ backgroundColor: i.colors }}
-              >
-                {i.image && (
-                  <img
-                    src={i.image}
-                    alt={i.name}
-                    className="mb-4 h-40 w-full object-cover"
-                  />
-                )}
-
-                <label className="block text-lg  font-bold text-white">
-                  {i.name}
-                </label>
-
-                <span className="text-md  text-white/80">{i.role}</span>
-              </div>
-            );
-          })}
         </div>
       </div>
     </>
