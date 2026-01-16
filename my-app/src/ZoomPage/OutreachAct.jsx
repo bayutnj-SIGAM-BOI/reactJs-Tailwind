@@ -1,19 +1,21 @@
 import React from "react";
-import AnimatedTitle from "../components/animatedTitle";
+import { Timeline } from "../components/ui/timeline";
+
+import { timeLine } from "../constant";
 
 const OutreachAct = () => {
+  
   return (
-    <div id="OutreachAct" className="min-h-screen w-full">
+    <div id="OutreachAct" className="min-h-screen w-full bg-background">
 
       <div className="relative mb-8 mt-36 flex flex-col items-center">
-        <AnimatedTitle
-          title="<b>Out</b>Reach Act<b>ivites</b>"
-          containerClass="mt-5 pointer-events-none mix-blend-difference relative z-10"
-        />
-      </div>
+          <div className="mt-5 text-center text-5xl uppercase leading-[0.8] md:text-[6rem]">
+            <b>O</b>utreac<b>h</b>
+          </div>
+        </div>
 
-      <div className="">
-
+      <div>
+        <Timeline data={timeLine}/>
       </div>
     </div>
   );

@@ -60,7 +60,7 @@ const Navbar = () => {
     >
       <header className="absolute top-1/2 w-full translate-y-1/2">
         <nav className="flex size-full items-center justify-between p-4">
-          <div className="flex items-center  gap-7">
+          <div className="flex items-center gap-7">
             <NavLink
               to="/"
               onClick={handleScrollTop}

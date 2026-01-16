@@ -13,15 +13,12 @@ const Contact = () => {
   const [status, setStatus] = useState("");
 
   const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    if (type === "checkbox") {
-      setFormData({
-        ...FormData,
-        category: checked ? value : "",
-      });
-    } else {
-      setFormData({ ...FormData, [name]: value });
-    }
+    const { name, value } = e.target;
+
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
   const handleSubmit = (e) => {
@@ -57,8 +54,13 @@ const Contact = () => {
       });
   };
 
+  console.log(formData);
+
   return (
-    <section id="Contact" className="min-h-dvd w-screen bg-black-10 text-blue-50">
+    <section
+      id="Contact"
+      className="min-h-dvd w-screen bg-black-10 text-blue-50"
+    >
       <div className="flex size-full flex-col items-center py-5 pb-20 px-8">
         <h2 className="font-general text-sm text-center uppercase md:text-[17px]">
           Curious about robots, coding, or STEAM challenges?
@@ -116,14 +118,14 @@ const Contact = () => {
             <label className="flex flex-col">
               <span className="text-white text-lg mb-4">Message</span>
               <textarea
-                type="text"
+                name="message"
                 value={formData.message}
                 onChange={handleChange}
                 rows={5}
                 required
                 className="w-full rounded-lg bg-neutral-900 border border-neutral-700 
-           text-white placeholder-neutral-500 px-6 py-3 
-           focus:outline-none focus:border-white focus:ring-1 focus:ring-white"
+             text-white placeholder-neutral-500 px-6 py-3 
+             focus:outline-none focus:border-white focus:ring-1 focus:ring-white"
               />
             </label>
 
@@ -137,11 +139,11 @@ text-white font-semibold transition"
             </button>
 
             {status === "success" && (
-              <p className="success-text">✅ Message sent successfully!</p>
+              <p className="success-text">Message sent successfully!</p>
             )}
             {status === "failed" && (
               <p className="error-text">
-                ❌ Failed to send message. Check your EmailJS setup.
+                Failed to send message. Check your EmailJS setup.
               </p>
             )}
           </form>

@@ -212,3 +212,12 @@ export const GenOne_card = [
     group: "Business",
   },
 ];
+
+
+export const timeLine = [{
+  title : "Musuem Biology UGM",
+}, {
+  title : "Prambanan Temple"
+}, {
+  title : "Musuem UGM"
+}]

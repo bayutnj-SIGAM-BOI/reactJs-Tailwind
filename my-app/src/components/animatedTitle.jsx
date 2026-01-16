@@ -10,25 +10,18 @@ const AnimatedTitle = ({ title, containerClass }) => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      const titleAnimation = gsap.timeline({
+      gsap.to(".animated-word", {
         scrollTrigger: {
           trigger: containerRef.current,
           start: "100 bottom",
           end: "center bottom",
           toggleActions: "play none none reverse",
         },
+        opacity: 1,
+        transform: "translate3d(0, 0, 0) rotateY(0deg) rotateX(0deg)",
+        ease: "power2.inOut",
+        stagger: 0.02,
       });
-
-      titleAnimation.to(
-        ".animatedWord",
-        {
-          opacity: 1,
-          transform: "translate3d(0, 0, 0) rotateY(0deg) rotateX(0deg)",
-          ease: "power2.inOut",
-          stagger: 0.02,
-        },
-        0
-      );
     }, containerRef);
 
     return () => ctx.revert();
@@ -44,7 +37,7 @@ const AnimatedTitle = ({ title, containerClass }) => {
           {line.split(" ").map((word, idx) => (
             <span
               key={idx}
-              className="animatedWord"
+              className="animated-word"
               dangerouslySetInnerHTML={{ __html: word }}
             />
           ))}

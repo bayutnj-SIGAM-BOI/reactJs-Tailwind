@@ -6,6 +6,7 @@ import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollSmoother } from "gsap/ScrollSmoother";
 
 
 const TextLine = ({ title, subtitle, className = "" }) => {
@@ -21,7 +22,7 @@ const TextLine = ({ title, subtitle, className = "" }) => {
 
 const About = () => {
 
-    gsap.registerPlugin(ScrollTrigger);
+    gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
     useGSAP(() => {
         gsap.fromTo(
@@ -34,16 +35,16 @@ const About = () => {
                 scale: 1,
                 opacity: 1,
                 ease: "none",
+                duration: 2,
                 scrollTrigger: {
                     trigger: "#pic",
-                    start: "top 85%",
-                    end: "top 40%",
+                    start: "center 85%",
+                    end: "+=300",
                     scrub: true,
                 },
             }
         );
     });
-
 
 
     return (
@@ -54,7 +55,7 @@ const About = () => {
         </h2>
 
         <div className="mt-5 text-center text-5xl uppercase leading-[0.8] md:text-[6rem]">
-          D<b>e</b>ep E<b>x</b>pl<b>o</b>ret<b>i</b>on <b>R</b>ob<b>o</b>tic T
+          D<b>e</b>ep E<b>x</b>pl<b>o</b>rat<b>i</b>on <b>R</b>ob<b>o</b>tic T
           <b>e</b>ams
         </div>
       </div>

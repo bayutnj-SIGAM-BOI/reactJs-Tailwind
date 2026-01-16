@@ -11,14 +11,15 @@ const Home2 = () => {
   return (
     <>
         <Hero
-          // Title={"Let's Get Inovated Together"}
-          Title={"World wide exchange"}
-          SubTitle={"Let's get a meeting with GO2STEAM"}
-          backgroundImage={Ulydala}
+          Title={"Let's Get Inovated Together"}
+          SubTitle={""}
+          backgroundImage={""}
           className={"relative h-[100vh] w-full overflow-hidden"}
         />
 
         <MemberIntroducde/>
+
+  
 
         <OutreachAct/>
     </>
